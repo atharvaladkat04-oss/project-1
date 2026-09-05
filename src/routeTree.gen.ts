@@ -10,33 +10,73 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CommunityRouteImport } from './routes/community'
+import { Route as MyAreaRouteImport } from './routes/my-area'
+import { Route as ReportRouteImport } from './routes/report'
+import { Route as SafeRouteRouteImport } from './routes/safe-route'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CommunityRoute = CommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MyAreaRoute = MyAreaRouteImport.update({
+  id: '/my-area',
+  path: '/my-area',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportRoute = ReportRouteImport.update({
+  id: '/report',
+  path: '/report',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SafeRouteRoute = SafeRouteRouteImport.update({
+  id: '/safe-route',
+  path: '/safe-route',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/community': typeof CommunityRoute
+  '/my-area': typeof MyAreaRoute
+  '/report': typeof ReportRoute
+  '/safe-route': typeof SafeRouteRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/community': typeof CommunityRoute
+  '/my-area': typeof MyAreaRoute
+  '/report': typeof ReportRoute
+  '/safe-route': typeof SafeRouteRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/community': typeof CommunityRoute
+  '/my-area': typeof MyAreaRoute
+  '/report': typeof ReportRoute
+  '/safe-route': typeof SafeRouteRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/community' | '/my-area' | '/report' | '/safe-route'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/community' | '/my-area' | '/report' | '/safe-route'
+  id: '__root__' | '/' | '/community' | '/my-area' | '/report' | '/safe-route'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CommunityRoute: typeof CommunityRoute
+  MyAreaRoute: typeof MyAreaRoute
+  ReportRoute: typeof ReportRoute
+  SafeRouteRoute: typeof SafeRouteRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +88,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/community': {
+      id: '/community'
+      path: '/community'
+      fullPath: '/community'
+      preLoaderRoute: typeof CommunityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/my-area': {
+      id: '/my-area'
+      path: '/my-area'
+      fullPath: '/my-area'
+      preLoaderRoute: typeof MyAreaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/report': {
+      id: '/report'
+      path: '/report'
+      fullPath: '/report'
+      preLoaderRoute: typeof ReportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/safe-route': {
+      id: '/safe-route'
+      path: '/safe-route'
+      fullPath: '/safe-route'
+      preLoaderRoute: typeof SafeRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CommunityRoute: CommunityRoute,
+  MyAreaRoute: MyAreaRoute,
+  ReportRoute: ReportRoute,
+  SafeRouteRoute: SafeRouteRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
