@@ -1,0 +1,25 @@
+{
+  "name": "LEWS — Landslide Early Warning System",
+  "short_name": "LEWS",
+  "description": "Offline-first landslide early warning for the Western Ghats: hazard zones, safe routes, shelters and community reports.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#05121c",
+  "theme_color": "#05121c",
+  "icons": [
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
