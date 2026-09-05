@@ -65,7 +65,7 @@ export function AppHeader() {
 
 export function EmergencyBanner() {
   const { offlineMode, lastSyncAt } = useOfflineStore();
-  const top = mockAlerts.find((a) => a.level === "critical") ?? mockAlerts[0];
+  const top = mockAlerts.find((a) => a.level === "critical") ?? mockAlerts[0]!;
   const cfg = RISK_CONFIG[top.level];
   const Icon = cfg.icon;
   return (
