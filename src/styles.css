@@ -159,6 +159,15 @@
   }
 }
 
+/* Dark-mode treatment for terrain map tiles (keyless Esri World Topo) */
+.leaflet-tile {
+  filter: brightness(0.62) contrast(1.12) saturate(0.75);
+}
+
+.leaflet-container {
+  font-family: var(--font-sans);
+}
+
 /* Ambient kinetic-glass backdrop: glow blobs + topo grid */
 @utility bg-grid-glow {
   background-image:

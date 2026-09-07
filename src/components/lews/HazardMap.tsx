@@ -20,13 +20,13 @@ export default function HazardMap() {
   return (
     <MapContainer
       center={CENTER}
-      zoom={9}
+      zoom={11}
       zoomControl={false}
       attributionControl={false}
       className="h-72 w-full"
       style={{ background: "#0a1826" }}
     >
-      <TileLayer url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png" />
+      <TileLayer url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}" />
       {mockRiskZones.map((zone) => {
         const colors = ZONE_COLORS[zone.level];
         const cfg = RISK_CONFIG[zone.level];
