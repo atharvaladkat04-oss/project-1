@@ -1,6 +1,7 @@
 export type RiskLevel = "critical" | "warning" | "normal";
 
 export type ReportStatus =
+  | "pending"
   | "community"
   | "panchayat_verified"
   | "geologist_confirmed";
