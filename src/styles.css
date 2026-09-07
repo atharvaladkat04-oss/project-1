@@ -1,6 +1,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import "leaflet/dist/leaflet.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -156,6 +157,15 @@
     font-family: var(--font-sans);
     -webkit-tap-highlight-color: transparent;
   }
+}
+
+/* Dark-mode treatment for terrain map tiles (keyless Esri World Topo) */
+.leaflet-tile {
+  filter: brightness(0.62) contrast(1.12) saturate(0.75);
+}
+
+.leaflet-container {
+  font-family: var(--font-sans);
 }
 
 /* Ambient kinetic-glass backdrop: glow blobs + topo grid */
