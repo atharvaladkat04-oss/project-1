@@ -26,6 +26,7 @@ export const Route = createFileRoute("/community")({
 
 function CommunityPage() {
   const { reports } = useReportsStore();
+  return (
     <div className="pb-6">
       <section aria-label="Community reports" className="mx-4 mt-4">
         <div className="flex items-end justify-between">
