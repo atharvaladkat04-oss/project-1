@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Users } from "lucide-react";
 import { ReportCard } from "@/components/lews/ReportCard";
-import { mockReports } from "@/data/mockLewsData";
+import { useReportsStore } from "@/hooks/useReportsStore";
 
 export const Route = createFileRoute("/community")({
   head: () => ({
