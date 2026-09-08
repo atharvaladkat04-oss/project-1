@@ -1,22 +1,28 @@
-import { BadgeCheck, Camera, MapPin, MessageCircle, ShieldCheck } from "lucide-react";
+import { BadgeCheck, Camera, CheckCircle2, Clock, MapPin, MessageCircle, ShieldCheck } from "lucide-react";
 import type { CitizenReport, ReportStatus } from "@/types/lews";
 import { RISK_CONFIG, RiskIconBadge } from "./RiskIndicator";
 import { cn } from "@/lib/utils";
 import { formatRelativeTime } from "@/lib/time";
+import { approveReport } from "@/hooks/useReportsStore";
 
 const STATUS_CONFIG: Record<
   ReportStatus,
   { icon: typeof MessageCircle; label: string; classes: string }
 > = {
+  pending: {
+    icon: Clock,
+    label: "Pending Verification",
+    classes: "text-warn bg-warn/15 border-warn/40",
+  },
   community: {
     icon: MessageCircle,
     label: "Community",
     classes: "text-safe bg-safe/15 border-safe/30",
   },
   panchayat_verified: {
-    icon: ShieldCheck,
-    label: "Panchayat",
-    classes: "text-warn bg-warn/15 border-warn/30",
+    icon: CheckCircle2,
+    label: "Verified by Local Panchayat",
+    classes: "text-safe bg-safe/15 border-safe/40",
   },
   geologist_confirmed: {
     icon: BadgeCheck,
@@ -29,6 +35,8 @@ export function ReportCard({ report }: { report: CitizenReport }) {
   const risk = RISK_CONFIG[report.severity];
   const status = STATUS_CONFIG[report.status];
   const StatusIcon = status.icon;
+  const isPending = report.status === "pending";
+
   return (
     <article className="rounded-2xl border border-line bg-white/5 p-3">
       <div className="flex items-start gap-3">
