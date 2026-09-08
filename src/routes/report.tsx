@@ -3,6 +3,7 @@ import { useState, type FormEvent } from "react";
 import { Camera, CloudOff, Send } from "lucide-react";
 import { RISK_CONFIG } from "@/components/lews/RiskIndicator";
 import { useOfflineStore } from "@/hooks/useOfflineStore";
+import { useReportsStore } from "@/hooks/useReportsStore";
 import type { RiskLevel } from "@/types/lews";
 import { cn } from "@/lib/utils";
 
