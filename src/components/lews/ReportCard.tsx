@@ -14,6 +14,11 @@ const STATUS_CONFIG: Record<
     label: "Pending Verification",
     classes: "text-warn bg-warn/15 border-warn/40",
   },
+  verified: {
+    icon: CheckCircle2,
+    label: "Verified by SSDMA",
+    classes: "text-safe bg-safe/15 border-safe/40",
+  },
   community: {
     icon: MessageCircle,
     label: "Community",
@@ -79,7 +84,7 @@ export function ReportCard({ report }: { report: CitizenReport }) {
           className="mt-3 flex min-h-10 w-full items-center justify-center gap-2 rounded-xl border border-safe/40 bg-safe/15 text-xs font-bold text-safe"
         >
           <ShieldCheck className="size-4" aria-hidden="true" />
-          Simulate Admin Approval
+          Simulate Instant Approval
         </button>
       )}
     </article>
