@@ -41,11 +41,11 @@ function CommunityPage() {
           </div>
           <span className="flex shrink-0 items-center gap-1.5 rounded-full border border-line bg-white/5 px-2.5 py-1.5 text-[10px] font-bold text-muted-foreground">
             <Users className="size-3.5" aria-hidden="true" />
-            {mockReports.length} today
+            {reports.length} today
           </span>
         </div>
         <div className="mt-4 space-y-2">
-          {mockReports.map((r) => (
+          {reports.map((r) => (
             <ReportCard key={r.id} report={r} />
           ))}
         </div>
