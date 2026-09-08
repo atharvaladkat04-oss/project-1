@@ -14,13 +14,13 @@ const ZONE_COLORS: Record<RiskLevel, { stroke: string; fill: string }> = {
   normal: { stroke: "#22c55e", fill: "#22c55e" },
 };
 
-const CENTER: [number, number] = [19.35, 73.79];
+const CENTER: [number, number] = [27.3389, 88.6065];
 
 export default function HazardMap() {
   return (
     <MapContainer
       center={CENTER}
-      zoom={11}
+      zoom={10}
       zoomControl={false}
       attributionControl={false}
       className="h-72 w-full"
@@ -49,7 +49,8 @@ export default function HazardMap() {
                   ⚠ {cfg.label}
                 </p>
                 <p style={{ margin: 0, fontSize: 12 }}>
-                  Rain {zone.rainfallMmHr} mm/hr · Slope {zone.slopeDeg}°
+                  Rain {zone.rainfallMmHr} mm/hr · Slope {zone.slopeDeg}° ·
+                  Saturation {zone.soilMoisturePct}%
                 </p>
               </div>
             </Popup>
