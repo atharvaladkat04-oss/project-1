@@ -51,11 +51,12 @@ export function ReportCard({ report }: { report: CitizenReport }) {
         </div>
         <span
           className={cn(
-            "flex shrink-0 items-center gap-1 rounded-md border px-2 py-1 text-[10px] font-bold uppercase tracking-wide",
+            "flex max-w-[42%] shrink-0 items-center gap-1 rounded-md border px-2 py-1 text-right text-[10px] font-bold uppercase leading-tight tracking-wide",
             status.classes,
+            isPending && "animate-pulse",
           )}
         >
-          <StatusIcon className="size-3" aria-hidden="true" />
+          <StatusIcon className="size-3 shrink-0" aria-hidden="true" />
           {status.label}
         </span>
       </div>
