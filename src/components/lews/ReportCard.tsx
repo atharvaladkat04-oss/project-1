@@ -72,6 +72,16 @@ export function ReportCard({ report }: { report: CitizenReport }) {
           </span>
         )}
       </div>
+      {isPending && (
+        <button
+          type="button"
+          onClick={() => approveReport(report.id)}
+          className="mt-3 flex min-h-10 w-full items-center justify-center gap-2 rounded-xl border border-safe/40 bg-safe/15 text-xs font-bold text-safe"
+        >
+          <ShieldCheck className="size-4" aria-hidden="true" />
+          Simulate Admin Approval
+        </button>
+      )}
     </article>
   );
 }
