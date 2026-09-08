@@ -1,22 +1,28 @@
-import { BadgeCheck, Camera, MapPin, MessageCircle, ShieldCheck } from "lucide-react";
+import { BadgeCheck, Camera, CheckCircle2, Clock, MapPin, MessageCircle, ShieldCheck } from "lucide-react";
 import type { CitizenReport, ReportStatus } from "@/types/lews";
 import { RISK_CONFIG, RiskIconBadge } from "./RiskIndicator";
 import { cn } from "@/lib/utils";
 import { formatRelativeTime } from "@/lib/time";
+import { approveReport } from "@/hooks/useReportsStore";
 
 const STATUS_CONFIG: Record<
   ReportStatus,
   { icon: typeof MessageCircle; label: string; classes: string }
 > = {
+  pending: {
+    icon: Clock,
+    label: "Pending Verification",
+    classes: "text-warn bg-warn/15 border-warn/40",
+  },
   community: {
     icon: MessageCircle,
     label: "Community",
     classes: "text-safe bg-safe/15 border-safe/30",
   },
   panchayat_verified: {
-    icon: ShieldCheck,
-    label: "Panchayat",
-    classes: "text-warn bg-warn/15 border-warn/30",
+    icon: CheckCircle2,
+    label: "Verified by Local Panchayat",
+    classes: "text-safe bg-safe/15 border-safe/40",
   },
   geologist_confirmed: {
     icon: BadgeCheck,
@@ -29,6 +35,8 @@ export function ReportCard({ report }: { report: CitizenReport }) {
   const risk = RISK_CONFIG[report.severity];
   const status = STATUS_CONFIG[report.status];
   const StatusIcon = status.icon;
+  const isPending = report.status === "pending";
+
   return (
     <article className="rounded-2xl border border-line bg-white/5 p-3">
       <div className="flex items-start gap-3">
@@ -43,11 +51,12 @@ export function ReportCard({ report }: { report: CitizenReport }) {
         </div>
         <span
           className={cn(
-            "flex shrink-0 items-center gap-1 rounded-md border px-2 py-1 text-[10px] font-bold uppercase tracking-wide",
+            "flex max-w-[42%] shrink-0 items-center gap-1 rounded-md border px-2 py-1 text-right text-[10px] font-bold uppercase leading-tight tracking-wide",
             status.classes,
+            isPending && "animate-pulse",
           )}
         >
-          <StatusIcon className="size-3" aria-hidden="true" />
+          <StatusIcon className="size-3 shrink-0" aria-hidden="true" />
           {status.label}
         </span>
       </div>
@@ -63,6 +72,16 @@ export function ReportCard({ report }: { report: CitizenReport }) {
           </span>
         )}
       </div>
+      {isPending && (
+        <button
+          type="button"
+          onClick={() => approveReport(report.id)}
+          className="mt-3 flex min-h-10 w-full items-center justify-center gap-2 rounded-xl border border-safe/40 bg-safe/15 text-xs font-bold text-safe"
+        >
+          <ShieldCheck className="size-4" aria-hidden="true" />
+          Simulate Admin Approval
+        </button>
+      )}
     </article>
   );
 }

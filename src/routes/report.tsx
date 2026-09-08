@@ -3,6 +3,7 @@ import { useState, type FormEvent } from "react";
 import { Camera, CloudOff, Send } from "lucide-react";
 import { RISK_CONFIG } from "@/components/lews/RiskIndicator";
 import { useOfflineStore } from "@/hooks/useOfflineStore";
+import { useReportsStore } from "@/hooks/useReportsStore";
 import type { RiskLevel } from "@/types/lews";
 import { cn } from "@/lib/utils";
 
@@ -28,15 +29,28 @@ export const Route = createFileRoute("/report")({
 });
 
 function ReportPage() {
-  const { offlineMode, queueReport, pendingReports } = useOfflineStore();
+  const { offlineMode, queueReport, pendingReports, lastKnownLocation } =
+    useOfflineStore();
+  const { addReport } = useReportsStore();
   const [severity, setSeverity] = useState<RiskLevel>("warning");
   const [submitted, setSubmitted] = useState(false);
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    addReport({
+      title: String(data.get("title") ?? "Hazard report"),
+      description: String(data.get("details") ?? ""),
+      location: lastKnownLocation ?? { lat: 19.349, lng: 73.789 },
+      village: "Khireshwar",
+      reportedBy: "You",
+      severity,
+      photoAttached: false,
+    });
     queueReport();
     setSubmitted(true);
-    e.currentTarget.reset();
+    form.reset();
   };
 
   return (
