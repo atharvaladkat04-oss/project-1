@@ -22,7 +22,13 @@ export function approveReport(id: string) {
     timers.delete(id);
   }
   reports = reports.map((r) =>
-    r.id === id ? { ...r, status: "panchayat_verified" as const } : r,
+    r.id === id
+      ? {
+          ...r,
+          status: "verified" as const,
+          verifiedBy: "SSDMA / District Authority",
+        }
+      : r,
   );
   emit();
 }
@@ -40,10 +46,10 @@ export function addReport(
   reports = [report, ...reports];
   emit();
 
-  // Mock verification pipeline: panchayat picks it up after 5 seconds.
+  // Mock verification pipeline: authority picks it up after 4 seconds.
   timers.set(
     id,
-    setTimeout(() => approveReport(id), 5000),
+    setTimeout(() => approveReport(id), 4000),
   );
   return report;
 }

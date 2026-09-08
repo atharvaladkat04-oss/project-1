@@ -2,6 +2,7 @@ export type RiskLevel = "critical" | "warning" | "normal";
 
 export type ReportStatus =
   | "pending"
+  | "verified"
   | "community"
   | "panchayat_verified"
   | "geologist_confirmed";
@@ -55,6 +56,7 @@ export interface CitizenReport {
   reportedBy: string;
   reportedAt: string;
   status: ReportStatus;
+  verifiedBy?: string;
   severity: RiskLevel;
   photoAttached: boolean;
 }
