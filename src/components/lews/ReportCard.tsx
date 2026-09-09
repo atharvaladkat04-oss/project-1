@@ -16,7 +16,7 @@ const STATUS_CONFIG: Record<
   },
   verified: {
     icon: CheckCircle2,
-    label: "Verified by SSDMA",
+    label: "SSDMA Verified",
     classes: "text-safe bg-safe/15 border-safe/40",
   },
   community: {
@@ -31,7 +31,7 @@ const STATUS_CONFIG: Record<
   },
   geologist_confirmed: {
     icon: BadgeCheck,
-    label: "Confirmed",
+    label: "GSI Sensor Telemetry",
     classes: "text-crit bg-crit/15 border-crit/40",
   },
 };

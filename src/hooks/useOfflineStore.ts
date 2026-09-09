@@ -13,7 +13,7 @@ export interface OfflineState {
 
 const DEFAULT_STATE: OfflineState = {
   offlineMode: false,
-  lastKnownLocation: { lat: 19.349, lng: 73.789 }, // Khireshwar, Malshej
+  lastKnownLocation: { lat: 27.3389, lng: 88.6065 }, // Gangtok, Sikkim
   cachedAlerts: [],
   lastSyncAt: "2026-09-05T06:47:00+05:30",
   pendingReports: 0,
