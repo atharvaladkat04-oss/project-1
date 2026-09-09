@@ -34,7 +34,7 @@ export const Route = createFileRoute("/my-area")({
 
 function MyAreaPage() {
   const { lastKnownLocation } = useOfflineStore();
-  const localZone = mockRiskZones[0]!; // Khireshwar sits inside Malshej Ghat zone
+  const localZone = mockRiskZones[0]!; // saved home sits near the Dikchu corridor
   const cfg = RISK_CONFIG[localZone.level];
 
   return (
@@ -55,7 +55,7 @@ function MyAreaPage() {
           <div className="flex items-center justify-between gap-3">
             <div className="min-w-0">
               <p className="text-sm font-bold">
-                Khireshwar, {localZone.name}
+                Gangtok · {localZone.name}
               </p>
               <p className="text-xs text-muted-foreground">
                 {localZone.district} district

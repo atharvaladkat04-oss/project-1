@@ -42,8 +42,8 @@ function ReportPage() {
     addReport({
       title: String(data.get("title") ?? "Hazard report"),
       description: String(data.get("details") ?? ""),
-      location: lastKnownLocation ?? { lat: 19.349, lng: 73.789 },
-      village: "Khireshwar",
+      location: lastKnownLocation ?? { lat: 27.3389, lng: 88.6065 },
+      village: "Gangtok",
       reportedBy: "You",
       severity,
       photoAttached: false,

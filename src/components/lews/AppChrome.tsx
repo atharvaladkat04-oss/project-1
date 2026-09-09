@@ -35,7 +35,7 @@ export function AppHeader() {
             LEWS
           </p>
           <p className="text-[10px] font-medium text-muted-foreground">
-            Western Ghats
+            Sikkim · NH-10
           </p>
         </div>
       </div>

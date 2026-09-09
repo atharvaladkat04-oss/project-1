@@ -18,7 +18,7 @@ export const Route = createFileRoute("/safe-route")({
       {
         name: "description",
         content:
-          "Nearest evacuation shelters in the Western Ghats with walking distance, capacity and available facilities.",
+          "Nearest evacuation shelters in Sikkim / along NH-10 with walking distance, capacity and available facilities.",
       },
       { property: "og:title", content: "Safe Route — LEWS" },
       {
@@ -55,7 +55,7 @@ function SafeRoutePage() {
               Recommended evacuation
             </p>
             <p className="mt-1 text-sm font-bold">
-              Khireshwar → {nearest.name}
+              Mangan / Dikchu → {nearest.name}, Gangtok (1.8 km)
             </p>
             <div className="mt-3 grid grid-cols-2 gap-2">
               <div className="rounded-lg bg-white/5 px-3 py-2">
@@ -74,10 +74,10 @@ function SafeRoutePage() {
           </div>
           <ol className="border-t border-line px-4 py-3">
             {[
-              "Exit via the north lane, away from the slope",
-              "Follow the marked blue reflectors past the temple",
-              "Cross the footbridge — do not use the ghat road",
-              "Check in with the shelter warden on arrival",
+              "Leave the Dikchu corridor via the uphill lane, away from the cut slope",
+              "Stay off NH-10 lower valley roads — rockfall risk is active",
+              "Follow the marked blue reflectors along the ridge road to Gangtok",
+              "Check in with the SSDMA shelter warden at Paljor Stadium on arrival",
             ].map((step, i) => (
               <li key={step} className="flex items-start gap-3 py-1.5">
                 <span className="grid size-6 shrink-0 place-items-center rounded-full bg-aqua/20 text-[11px] font-bold text-aqua">

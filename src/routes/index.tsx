@@ -16,13 +16,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Live landslide hazard zones across the Western Ghats with evacuation shelters and multi-modal critical, warning and normal alerts.",
+          "Live landslide hazard zones across Sikkim / NH-10 with evacuation shelters and multi-modal critical, warning and normal alerts.",
       },
       { property: "og:title", content: "Hazard Map — LEWS" },
       {
         property: "og:description",
         content:
-          "Live landslide hazard zones across the Western Ghats with evacuation shelters and alerts.",
+          "Live landslide hazard zones across Sikkim / NH-10 with evacuation shelters and alerts.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -107,7 +107,7 @@ function MapPage() {
               <RiskIndicator level="normal" />
             </div>
             <div className="absolute right-3 top-3 z-[500] rounded-full border border-line bg-slate-deep/60 px-2 py-1 text-[9px] font-semibold text-foreground/70">
-              19.35° N, 73.79° E
+              27.34° N, 88.61° E
             </div>
           </div>
         )}
