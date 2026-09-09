@@ -10,7 +10,7 @@ export const Route = createFileRoute("/community")({
       {
         name: "description",
         content:
-          "Citizen landslide reports from Western Ghats villages with community, panchayat-verified and geologist-confirmed status.",
+          "Citizen landslide reports from Sikkim and NH-10 villages with community, panchayat-verified and geologist-confirmed status.",
       },
       { property: "og:title", content: "Community Reports — LEWS" },
       {

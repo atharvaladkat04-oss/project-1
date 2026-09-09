@@ -90,7 +90,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Offline-first landslide early warning for the Western Ghats: hazard zones, safe routes, shelters and community reports.",
+          "Offline-first landslide early warning for Sikkim / NH-10: hazard zones, safe routes, shelters and community reports.",
       },
       { name: "theme-color", content: "#05121c" },
       { name: "apple-mobile-web-app-capable", content: "yes" },
