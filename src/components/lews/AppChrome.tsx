@@ -32,7 +32,7 @@ export function AppHeader() {
         </div>
         <div>
           <p className="font-display text-sm font-extrabold leading-none tracking-tight">
-            LEWS
+            BHU-NETRA
           </p>
           <p className="text-[10px] font-medium text-muted-foreground">
             Sikkim · NH-10
